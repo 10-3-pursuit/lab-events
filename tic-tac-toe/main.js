@@ -42,3 +42,7 @@ const reset = () => {
     checkGameIsOver();
     makeBoard();
 }
+
+
+const resetButton = document.querySelector("button");
+resetButton.addEventListener("click", reset);
