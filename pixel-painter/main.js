@@ -16,3 +16,11 @@ colorDivs.forEach((div) => {
     currentColorObj.setAttribute("style", style);
   })
 })
+
+const cells = document.querySelectorAll("#canvas .cell");
+cells.forEach((cell) => {
+  cell.addEventListener("click", (event) => {
+    const color = currentColorObj.getAttribute("style");
+    cell.setAttribute("style", color);
+  })
+})
