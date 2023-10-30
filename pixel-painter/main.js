@@ -13,8 +13,20 @@ const currentColor = document.querySelector("#current-color");
 //I look at this as an array bc it is essentially a list of colors
 const colorsArray = document.querySelectorAll(".color");
 
+//loop through the colorsArray
+//add an eventListener to each element in the colors Array
+// update the current color to the selected color of the palette
+// use dot notation because each element in the array is essentially an object
 for (let color of colorsArray) {
   color.addEventListener("mousedown", () => {
     currentColor.style.background = color.style.background;
+  });
+}
+
+const cellsArray = document.querySelectorAll(".cell");
+
+for (let cell of cellsArray) {
+  cell.addEventListener("click", () => {
+    cell.style.background = currentColor.style.background;
   });
 }
