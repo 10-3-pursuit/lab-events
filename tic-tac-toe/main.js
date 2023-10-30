@@ -46,3 +46,18 @@ const reset = () => {
 
 const resetButton = document.querySelector("button");
 resetButton.addEventListener("click", reset);
+
+const checkGameIsOver = () => {
+    let countOfSquares = 0;
+    squares.forEach((square) => {
+        if (!square.classList.value.includes("empty")) {
+            countOfSquares++;
+        }
+    })
+    if (countOfSquares == 9) {
+        // make a pop up that says "Game Over"
+        alert("Game Over");
+    }
+}
+
+// TODO: Write logic to check if X or 0 won and create a message displaying who won
