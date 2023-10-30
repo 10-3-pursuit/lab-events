@@ -33,3 +33,12 @@ squares.forEach((square) => {
         makeMove(square)
     })
 });
+
+
+const reset = () => {
+    squares.forEach((square) => {
+        square.remove();
+    });
+    checkGameIsOver();
+    makeBoard();
+}
