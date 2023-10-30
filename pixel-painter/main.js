@@ -26,8 +26,31 @@ const cells = document.querySelectorAll(".cell");
 for(let cell of cells ){
   cell.addEventListener("click", (event) => {
     // event.target = cell. so we update the cell color to the current color
-    event.target.style.background = currentColor.style.background;
+    cell.style.background = currentColor.style.background;
   })
 };
+
+//  Create a button that, when clicked, resets all cells so that they all have a background of white.
+
+// Create button element
+const resetButton = document.createElement("button");
+
+// Give button name
+resetButton.textContent = "Reset Button";
+
+// Append it to main
+main.append(resetButton);
+
+// event when the button is clicked and changes all cells to white;
+resetButton.addEventListener("click", (event) => {
+  cells.forEach(cell => {
+    cell.style.background = "white";
+  });
+});
+
+
+
+
+
 
 
