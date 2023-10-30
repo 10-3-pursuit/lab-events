@@ -16,14 +16,24 @@ const cells = document.getElementsByClassName('cell')
 for(let color of colors) {
   color.addEventListener('click', () => {
     currentColor.style.backgroundColor = color.style.backgroundColor
-    for(let cell of cells) {
-      cell.addEventListener('click', () => {
-        cell.style.backgroundColor = color.style.backgroundColor
-      })
-    }
   })
 }
 
+for(let cell of cells) {
+  cell.addEventListener('click', () => {
+    cell.style.backgroundColor = currentColor.style.backgroundColor
+  })
+}
+
+const reset = document.createElement('button')
+reset.textContent = 'Reset'
+palette.append(reset)
+
+reset.addEventListener('click', ()=> {
+  for(let cell of cells) {
+    cell.style.backgroundColor = 'white'
+  }
+})
 
  
 
