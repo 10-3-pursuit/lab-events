@@ -31,7 +31,6 @@ const resetButton = document.createElement('button');
 resetButton.textContent = 'Reset';
 sectionReset.append(resetButton);
 wrapper.append(sectionReset);
-// console.log(wrapper)
 
 resetButton.addEventListener('click', () => {
   cells.forEach((cell) => {
@@ -52,4 +51,3 @@ fillAllButton.addEventListener('click', () => {
   })
 })
 
-console.log(wrapper)
