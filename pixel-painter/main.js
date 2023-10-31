@@ -35,5 +35,15 @@ reset.addEventListener('click', ()=> {
   }
 })
 
+const paintAll = document.createElement('button')
+paintAll.textContent = 'Paint All'
+palette.append(paintAll)
+
+paintAll.addEventListener('click', ()=> {
+  for(let cell of cells) {
+    cell.style.backgroundColor = currentColor.style.backgroundColor
+  }
+})
+
  
 
