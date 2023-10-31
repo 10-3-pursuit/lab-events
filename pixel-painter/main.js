@@ -7,6 +7,10 @@ for (let i = 0; i < 100; i++) {
   main.append(div);
 }
 
+const resetButton = document.createElement("button");
+resetButton.innerHTML = "Reset";
+main.append(resetButton);
+
 //grab the current color box
 const currentColor = document.querySelector("#current-color");
 //grab each color in the colors palette
@@ -28,5 +32,11 @@ const cellsArray = document.querySelectorAll(".cell");
 for (let cell of cellsArray) {
   cell.addEventListener("click", () => {
     cell.style.background = currentColor.style.background;
+  });
+}
+
+for (let cell of cellsArray) {
+  reset.addEventListener("click", () => {
+    cell.style.background = "white";
   });
 }

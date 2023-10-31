@@ -24,7 +24,7 @@ You will need to complete the following tasks. If you're unclear about any of th
 
 - [x] When a color is clicked in the `#palette`, the `#current-color` element should have its background changed to that color. For example, if you click the green circle in the `#palette`, the `#current-color` element's background should change to be green.
 
-- [ ] When you click on a `.cell`, its background should change to match the background of `#current-color`.
+- [x] When you click on a `.cell`, its background should change to match the background of `#current-color`.
 
 ![pixel painter demo](./assets/ezgif.com-pixel-painter.gif)
 
@@ -36,8 +36,8 @@ Remember that you can access an elements style declarations by accessing the `.s
 
 Attempt to implement _at least one_ of the following features:
 
-- [v] Increase the number of cells without increasing the width or height of the `#canvas` element.
-- [] Change the event listener so that instead of clicking to fill a color, you hold down your mouse.
+- [] Increase the number of cells without increasing the width or height of the `#canvas` element.
+- [x] Change the event listener so that instead of clicking to fill a color, you hold down your mouse.
 - [ ] Create a button that, when clicked, resets all cells so that they all have a background of white.
 - [ ] Create a button that, when clicked, changes all of the cells so that they match the `#current-color` element's background.
 
