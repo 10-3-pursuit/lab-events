@@ -23,3 +23,28 @@ for (let cell of cells) {
     cell.style.background = currentColor.style.background;
   });
 }
+
+
+
+// reset button
+const reset = document.createElement('button');
+reset.innerText = "Reset";
+reset.setAttribute('class', 'color button')
+// buttons.append(reset);
+document.querySelector('#palette').append(reset)
+
+reset.addEventListener("click", () => {
+  currentColor.style.background = "none";
+  cells.forEach((cell) => cell.style.background = 'none')
+});
+
+// match all cells to current color
+const fillBoard = document.createElement('button');
+fillBoard.innerText = "Fill Board";
+fillBoard.setAttribute('class', 'color button')
+document.querySelector('#palette').append(fillBoard)
+fillBoard.addEventListener("click", () => {
+  cells.forEach((cell) => cell.style.background = currentColor.style.background)
+
+})
+
