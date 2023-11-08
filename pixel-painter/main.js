@@ -24,15 +24,13 @@ const cellArr = document.querySelectorAll("#canvas .cell"); // main has id canva
 cellArr.forEach((cell) => {
   cell.addEventListener("click", () => {
     const colorOfCell = currentColor.getAttribute("style"); // bc line 18 we gave the colorDivs attached to main a style attribute of with the style (background colors) that the palette divs had we can get this attribute and save to colorOfCell
-    cell.setAttribute("style", colorOfCell); // then set it to event whenever element is clicked
+    cell.setAttribute("style", colorOfCell); // then set it to cell whenever element is clicked
   });
 });
 
-/* Notes: While "event" is an object, it doesn't have a setAttribute method because it's not intendeded to be used for directly manipulating the DOM or modifying elements' attributes. Instead, it's used to gather information about the event and interact with event-related data.
+/* Notes: While "event" is an object, it doesn't have a setAttribute method because it's not intendeded to be used for directly manipulating the DOM or modifying elements' attributes. Instead, it's used to gather information about the event and interact with event-related data. To modify the DOM, such as setting the style attribute on an HTML element, you need to operate on the actual HTML element itself, not the event object. 
 
-to modify the DOM, such as setting the style attribute on an HTML element, you need to operate on the actual HTML element itself, not the event object. 
-
-so this is wrong and won't work:
+This is wrong and won't work:
 
 const cellArr = document.querySelectorAll("#canvas .cell");
 cellArr.forEach((cell) => {
@@ -41,5 +39,4 @@ cellArr.forEach((cell) => {
     event.setAttribute("style", colorOfCell);
   });
 });
-
 */
