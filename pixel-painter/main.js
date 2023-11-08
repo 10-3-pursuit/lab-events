@@ -21,3 +21,25 @@ paletteDivArr.forEach((colorDiv) => { // can use for loop or foreach method to i
 
 // make cells for the grid change to same color as bottom square on click
 const cellArr = document.querySelectorAll("#canvas .cell"); // main has id canvas which is where div elements with class cell are appended to. This selects each one in order to make array and puts it in a variable
+cellArr.forEach((cell) => {
+  cell.addEventListener("click", () => {
+    const colorOfCell = currentColor.getAttribute("style"); // bc line 18 we gave the colorDivs attached to main a style attribute of with the style (background colors) that the palette divs had we can get this attribute and save to colorOfCell
+    cell.setAttribute("style", colorOfCell); // then set it to event whenever element is clicked
+  });
+});
+
+/* Notes: While "event" is an object, it doesn't have a setAttribute method because it's not intendeded to be used for directly manipulating the DOM or modifying elements' attributes. Instead, it's used to gather information about the event and interact with event-related data.
+
+to modify the DOM, such as setting the style attribute on an HTML element, you need to operate on the actual HTML element itself, not the event object. 
+
+so this is wrong and won't work:
+
+const cellArr = document.querySelectorAll("#canvas .cell");
+cellArr.forEach((cell) => {
+  cell.addEventListener("click", (event) => {
+    const colorOfCell = currentColor.getAttribute("style");
+    event.setAttribute("style", colorOfCell);
+  });
+});
+
+*/
