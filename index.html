@@ -11,15 +11,6 @@
       rel="stylesheet"
     />
     <title>Home</title>
-  </head>
-  <body>
-    <header>
-      <h1>Home</h1>
-    </header>
-    <nav>
-      <a href="./pixel-painter/index.html">Pixel Painter</a>
-      <a href="./tic-tac-toe/index.html">Tic Tac Toe</a>
-    </nav>
     <style>
       body {
         font-family: "Josefin Sans", sans-serif;
@@ -37,6 +28,111 @@
         background-color: blanchedalmond;
         opacity: 0.5;
       }
+      #palette {
+        display: flex;
+        justify-content: space-around;
+      }
+      .color-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 1px;
+      }
+      .cell {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #000;
+        cursor: pointer;
+      }
+      #current-color {
+        width: 50px;
+        height: 50px;
+        border: 1px solid #000;
+        margin-top: 10px;
+      }
+      #reset-button {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
     </style>
+  </head>
+  <body>
+    <header>
+      <h1>Home</h1>
+    </header>
+    <nav>
+      <a href="./pixel-painter/index.html">Pixel Painter</a>
+      <a href="./tic-tac-toe/index.html">Tic Tac Toe</a>
+    </nav>
+    <div id="palette">
+      <div class="color-circle" style="background-color: red" onclick="changeCurrentColor('red')"></div>
+      <div class="color-circle" style="background-color: green" onclick="changeCurrentColor('green')"></div>
+      <div class="color-circle" style="background-color: blue" onclick="changeCurrentColor('blue')"></div>
+      <!-- Add more color circles as needed -->
+    </div>
+    <div class="grid" id="grid">
+      <!-- Your 10x10 grid cells -->
+      <!-- The cells are given IDs like cell-0-0, cell-0-1, ..., cell-9-9 -->
+      <!-- These IDs are used to uniquely identify each cell in JavaScript -->
+      <!-- You can customize the styling of the cells as needed -->
+      <!-- You can also use a loop to generate these cells dynamically -->
+      <!-- I added an event listener to each cell for the click event -->
+      <!-- When a cell is clicked, it calls the changeCellColor function -->
+      <!-- and passes the cell element to change its background color -->
+
+      <!-- Add more cells as needed -->
+    </div>
+    <div id="current-color"></div>
+    <button id="reset-button" onclick="resetGrid()">Reset Grid</button>
+
+    <script>
+      let currentColor = ''; // Variable to store the current color
+
+      // Function to change the background color of #current-color
+      function changeCurrentColor(color) {
+        currentColor = color;
+        document.getElementById('current-color').style.backgroundColor = color;
+      }
+
+      // Function to change the background color of a clicked cell
+      function changeCellColor(cell) {
+        if (currentColor !== '') {
+          cell.style.backgroundColor = currentColor;
+        } else {
+          alert('Please select a color from the palette first.');
+        }
+      }
+
+      // Function to reset all cells to white
+      function resetGrid() {
+        const cells = document.querySelectorAll('.cell');
+        cells.forEach((cell) => {
+          cell.style.backgroundColor = 'white';
+        });
+      }
+
+      // Generate the 10x10 grid dynamically
+      const gridContainer = document.getElementById('grid');
+      for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 10; j++) {
+          const cell = document.createElement('div');
+          cell.classList.add('cell');
+          cell.id = `cell-${i}-${j}`;
+          cell.onclick = function () {
+            changeCellColor(this);
+          };
+          gridContainer.appendChild(cell);
+        }
+      }
+    </script>
   </body>
 </html>
