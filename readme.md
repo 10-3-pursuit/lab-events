@@ -26,7 +26,7 @@ You will need to complete the following tasks. If you're unclear about any of th
 
 - [ ] When you click on a `.cell`, its background should change to match the background of `#current-color`.
 
-![pixel painter demo](./assets/ezgif.com-pixel-painter.gif)
+![pixel painter demo](./assets/pixelPainter.png)
 
 ### Tip
 
